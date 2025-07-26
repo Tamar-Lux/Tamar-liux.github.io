@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hôtel à Manakara</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    header {
+      background-color: #0077b6;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .room, .intro, .form-box {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .room img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #00b4d8;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #0077b6;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bienvenue à l'Hôtel de Manakara</h1>
+    <p>3 chambres confortables à 200 000 Ar/jour</p>
+  </header>
+
+  <div class="container">
+
+    <div class="intro">
+      <p>Situé à Manakara, notre hôtel vous propose 3 chambres agréables, parfaites pour votre séjour. Profitez d'un cadre calme à un prix abordable.</p>
+    </div>
+
+    <h2>Nos Chambres</h2>
+
+    <div class="room">
+      <img src="https://via.placeholder.com/800x400?text=Chambre+1" alt="Chambre 1">
+      <h3>Chambre 1</h3>
+      <p>Lit double, douche privée, WiFi, ventilateur</p>
+      <p><strong>200 000 Ar / nuit</strong></p>
+    </div>
+
+    <div class="room">
+      <img src="https://via.placeholder.com/800x400?text=Chambre+2" alt="Chambre 2">
+      <h3>Chambre 2</h3>
+      <p>2 lits simples, vue jardin, WiFi</p>
+      <p><strong>200 000 Ar / nuit</strong></p>
+    </div>
+
+    <div class="room">
+      <img src="https://via.placeholder.com/800x400?text=Chambre+3" alt="Chambre 3">
+      <h3>Chambre 3</h3>
+      <p>Lit double, salle de bain privée, climatisation</p>
+      <p><strong>200 000 Ar / nuit</strong></p>
+    </div>
+
+    <h2>Réservation</h2>
+
+    <div class="form-box">
+      <form id="bookingForm">
+        <label>Nom complet :</label>
+        <input type="text" id="nom" required>
+
+        <label>Date d’arrivée :</label>
+        <input type="date" id="arrivee" required>
+
+        <label>Date de départ :</label>
+        <input type="date" id="depart" required>
+
+        <label>Choisissez une chambre :</label>
+        <select id="chambre" required>
+          <option value="">-- Sélectionner --</option>
+          <option value="Chambre 1">Chambre 1</option>
+          <option value="Chambre 2">Chambre 2</option>
+          <option value="Chambre 3">Chambre 3</option>
+        </select>
+
+        <label>Téléphone :</label>
+        <input type="tel" id="telephone" required>
+
+        <label>Message (facultatif) :</label>
+        <textarea id="message" rows="4"></textarea>
+
+        <a href="#" class="btn" onclick="envoyerWhatsApp()">Envoyer via WhatsApp</a>
+      </form>
+    </div>
+
+    <p>Ou appelez directement : <strong>+261 34 46 240 69</strong></p>
+  </div>
+
+  <footer>
+    © 2025 Hôtel à Manakara – Tous droits réservés
+  </footer>
+
+  <script>
+    function envoyerWhatsApp() {
+      const nom = document.getElementById('nom').value;
+      const arrivee = document.getElementById('arrivee').value;
+      const depart = document.getElementById('depart').value;
+      const chambre = document.getElementById('chambre').value;
+      const telephone = document.getElementById('telephone').value;
+      const message = document.getElementById('message').value;
+
+      const texte = `Nouvelle réservation:%0ANom: ${nom}%0ATéléphone: ${telephone}%0AChambre: ${chambre}%0ADu ${arrivee} au ${depart}%0AMessage: ${message}`;
+      const whatsappURL = `https://wa.me/261344624069?text=${texte}`;
+
+      window.open(whatsappURL, '_blank');
+    }
+  </script>
+</body>
+</html>
